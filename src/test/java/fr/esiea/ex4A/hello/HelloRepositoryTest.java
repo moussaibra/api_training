@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class HelloRepositoryTest {
 
-    private final ApiRepository apiRepository = new apiRepository();
+    private final HelloRepository helloRepository = new HelloRepository();
 
     @Test
     void randomHello_returns_an_hello_based_on_internal_list() {
