@@ -17,11 +17,13 @@ class ApiController {
     @PostMapping(path="/api/inscription")
     void inscription(@RequestBody UserInfo userInfo) throws InterruptedException{
         HashMap<String, String> userValue = new HashMap<String, String>();
-        userValue.put("England", "London");
-        userValue.put("Germany", "Berlin");
-        userValue.put("Norway", "Oslo");
-        userValue.put("USA", "Washington DC");
-        System.out.println(capitalCities);
+        userValue.put("userCountry", userInfo.userCountry);
+        userValue.put("userEmail", userInfo.userEmail);
+        userValue.put("userName", userInfo.userName);
+        userValue.put("userSex", userInfo.userSex);
+        userValue.put("userSexPref", userInfo.userSexPref);
+        userValue.put("userTweeter", userInfo.userTweeter);
+        System.out.println(userValue);
         System.out.println(userInfo);
 
     }
