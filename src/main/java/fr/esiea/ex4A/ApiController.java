@@ -1,22 +1,29 @@
 package fr.esiea.ex4A;
 
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 @RestController
 class ApiController {
+
+    private final ApiRepository apiRepository;
+
+
+
+
     private final ApiService apiService;
 
-    ApiController(ApiService apiService) {
+    public ApiController(ApiService apiService,ApiRepository apiRepository) {
         this.apiService = apiService;
+        this.apiRepository=apiRepository;
     }
+
+    HashMap<String, String> userValue = new HashMap<String, String>();
     @PostMapping(path="/api/inscription")
     void inscription(@RequestBody UserInfo userInfo) throws InterruptedException{
-        HashMap<String, String> userValue = new HashMap<String, String>();
+
         userValue.put("userCountry", userInfo.userCountry);
         userValue.put("userEmail", userInfo.userEmail);
         userValue.put("userName", userInfo.userName);
@@ -28,14 +35,32 @@ class ApiController {
 
     }
 
+
+
+
+
+
+    UserData sayHello(@RequestParam(name = "name", required = false) String userName, String userCountry , String userTweeter) {
+        final UserData userData;
+
+        if (userName.equals(userValue.get(userName))) {
+            userData = apiRepository.getUserDataFor(userName,userTweeter);
+        }
+        else
+        {
+            userData=null;
+        }
+
+        return userData;
+    }
+
     @GetMapping("/api/matches")
     List<UserData> matches() {
         return List.of(
-            new UserData("titi", "machin"),
-            new UserData("tutu", "bidule")
+            new UserData(userValue.get("userName"), userValue.get("userTweeter")),
+            new UserData(userValue.get("userName"), userValue.get("userTweeter"))
         );
-        }
-
+    };
 
 
 }
