@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
-class ApiController {
+public class ApiController {
 
     private final ApiRepository apiRepository;
 
@@ -14,13 +14,13 @@ class ApiController {
 
 
     private final ApiService apiService;
-
+    HashMap<String, String> userValue = new HashMap<String, String>();
     public ApiController(ApiService apiService,ApiRepository apiRepository) {
         this.apiService = apiService;
         this.apiRepository=apiRepository;
     }
 
-    HashMap<String, String> userValue = new HashMap<String, String>();
+
     @PostMapping(path="/api/inscription")
     void inscription(@RequestBody UserInfo userInfo) throws InterruptedException{
 
@@ -31,7 +31,7 @@ class ApiController {
         userValue.put("userSexPref", userInfo.userSexPref);
         userValue.put("userTweeter", userInfo.userTweeter);
         System.out.println(userValue);
-        System.out.println(userInfo);
+        System.out.println(userInfo.toString());
 
     }
 
@@ -56,11 +56,14 @@ class ApiController {
 
     @GetMapping("/api/matches")
     List<UserData> matches() {
+
         return List.of(
             new UserData(userValue.get("userName"), userValue.get("userTweeter")),
             new UserData(userValue.get("userName"), userValue.get("userTweeter"))
         );
-    };
+    }
+
+
 
 
 }
