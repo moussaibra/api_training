@@ -1,12 +1,12 @@
 package fr.esiea.ex4A;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
 public class UserData {
-    ApiController apiController ;
     public final String userName;
     public final String userTweeter;
 
@@ -15,13 +15,11 @@ public class UserData {
         this.userTweeter = twitter;
 
     }
-    @GetMapping("/api/matches")
-    List<UserData> matches() {
+    UserData getUserDataFor(String name,String twitter) {
 
-        return List.of(
-            new UserData(apiController.userValue.get(userName), apiController.userValue.get(userTweeter)),
-            new UserData(apiController.userValue.get(userName), apiController.userValue.get(userTweeter))
-        );
-    };
+        return new UserData(name + ""  , twitter +"" );
+    }
+
+
 
 }
