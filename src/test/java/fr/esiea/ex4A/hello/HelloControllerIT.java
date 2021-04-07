@@ -1,5 +1,6 @@
 package fr.esiea.ex4A.hello;
 
+import fr.esiea.ex4A.UserInfo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -45,6 +46,7 @@ class HelloControllerIT {
                         """));
 
         verify(repository).getHelloFor("test");
+
     }
 
     @Test
