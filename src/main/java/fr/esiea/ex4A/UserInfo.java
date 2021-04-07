@@ -1,4 +1,5 @@
 package fr.esiea.ex4A;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 public class UserInfo {
@@ -37,3 +38,4 @@ public class UserInfo {
     @Override
     public int hashCode() {
         return Objects.hash(userCountry, userName, userEmail, userTweeter, userSex, userSexPref); }}
+
