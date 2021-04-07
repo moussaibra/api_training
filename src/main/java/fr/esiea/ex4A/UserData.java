@@ -9,6 +9,7 @@ public class UserData {
     public final String userName;
     public final String userTweeter;
 
+
     public UserData(String name, String twitter) {
         this.userName = name;
         this.userTweeter = twitter;

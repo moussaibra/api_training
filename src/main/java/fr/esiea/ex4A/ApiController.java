@@ -50,8 +50,9 @@ public class ApiController {
             @GetMapping("/api/matches")
             List<UserData> matches () {
                 return List.of(
-                    new UserData(userValue.get("userName"), userValue.get("userTweeter")),
-                    new UserData(userValue.get("userName"), userValue.get("userTweeter"))
+                    new UserData("titi","mouking"),
+                    new UserData("tutu","tata")
+
                 );
 
             }
