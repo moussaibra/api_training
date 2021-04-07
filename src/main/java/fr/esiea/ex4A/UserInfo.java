@@ -1,10 +1,7 @@
 package fr.esiea.ex4A;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.List;
-
 public class UserInfo {
+
     public final String userCountry;
     public final String userName;
     public final String userEmail;
@@ -24,6 +21,7 @@ public class UserInfo {
         this.userSex = userSex;
         this.userSexPref = userSexPref;
     }
+
     @Override
     public String toString() {
         return "UserInfo{" +
