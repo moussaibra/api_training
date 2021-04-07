@@ -1,7 +1,6 @@
 package fr.esiea.ex4A;
 import com.fasterxml.jackson.annotation.JsonProperty;
 public class UserInfo {
-
     public final String userCountry;
     public final String userName;
     public final String userEmail;
@@ -13,10 +12,7 @@ public class UserInfo {
                     @JsonProperty ("userEmail")String userEmail,
                     @JsonProperty ("userTweeter")String userTweeter,
                     @JsonProperty ("userSex")String userSex,
-                    @JsonProperty ("userSexPref")String userSexPref) {
-        this.userCountry = userCountry;
-        this.userName = userName;
-        this.userEmail = userEmail;
+                    @JsonProperty ("userSexPref")String userSexPref) { this.userCountry = userCountry; this.userName = userName; this.userEmail = userEmail;
         this.userTweeter = userTweeter;
         this.userSex = userSex;
         this.userSexPref = userSexPref;
