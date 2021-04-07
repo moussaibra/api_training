@@ -1,7 +1,14 @@
 package fr.esiea.ex4A;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+<<<<<<< HEAD
 import java.util.Objects;
+=======
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
+
+>>>>>>> origin/main
 public class UserInfo {
     public final String userCountry;
     public final String userName;
